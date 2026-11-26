@@ -90,12 +90,15 @@ def show_board(board):
         for rank in range(1, 14):
             if rank in board[suit]:
                 mark = rank_name(rank)
+            elif rank - 1 in board[suit] or rank + 1 in board[suit]:
+                mark = "+"    
             else:
                 mark = "."
             print(f"{mark:>3}", end="")
         print()
     print("S=スペード  H=ハート  D=ダイヤ  C=クラブ")
     print(". はまだ置かれていないカードです。")
+    print("+は次における場所です。")
 
 
 def show_hand(hand, board):
