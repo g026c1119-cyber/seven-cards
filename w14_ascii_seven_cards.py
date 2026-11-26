@@ -181,7 +181,9 @@ def cpu_turn(hand, board, cpu_number):
     else:
         card = random.choice(choices)
         put_card(card, hand, board)
-        print("CPU" + str(cpu_number) + "：" + card_name(card) + " を出した")
+        message = "CPU" +str(cpu_number) + ":" + card_name(card) + "を出した"
+        print(message)
+        return message
 
 
 def main():
@@ -194,17 +196,24 @@ def main():
     hands = deal_cards(deck)
     board = create_board()
     turn = 0
+    cpu_log = []
 
     while True:
         print("\n------------------------------")
         if turn == 0:
             print("あなたの番です。")
+            if len(cpu_log) > 0:
+                print("前回のCPUの行動ログ：")
+                for message in cpu_log:
+                    print(" " + message)
+                cpu_log = []
             keep_playing = human_turn(hands[0], board)
             if not keep_playing:
                 print("ゲームを終了しました。")
                 break
         else:
-            cpu_turn(hands[turn], board, turn)
+            log_message = cpu_turn(hands[turn], board, turn)
+            cpu_log.append(log_message)
 
         if len(hands[turn]) == 0:
             show_board(board)
