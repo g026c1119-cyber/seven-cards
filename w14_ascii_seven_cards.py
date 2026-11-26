@@ -98,7 +98,7 @@ def show_board(board):
         print()
     print("S=スペード  H=ハート  D=ダイヤ  C=クラブ")
     print(". はまだ置かれていないカードです。")
-    print("+は次における場所です。")
+    print("+は次に置ける場所です。")
 
 
 def show_hand(hand, board):
