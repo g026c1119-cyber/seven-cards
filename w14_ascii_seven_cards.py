@@ -177,7 +177,7 @@ def cpu_turn(hand, board, cpu_number):
             choices.append(card)
 
     if len(choices) == 0:
-        message("CPU" + str(cpu_number) + "：パス")
+        message = "CPU" + str(cpu_number) + "：パス"
     else:
         card = random.choice(choices)
         put_card(card, hand, board)
