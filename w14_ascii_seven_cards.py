@@ -182,8 +182,8 @@ def cpu_turn(hand, board, cpu_number):
         card = random.choice(choices)
         put_card(card, hand, board)
         message = "CPU" +str(cpu_number) + ":" + card_name(card) + "を出した"
-        print(message)
-        return message
+    print(message)
+    return message
 
 
 def main():
